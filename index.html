@@ -46,7 +46,7 @@
                 <a class="btn btn-ghost normal-case text-lg font-medium bg-slate-200 px-4">Sort by view</a>
             </div>
             <div class="navbar-end">
-                <button class="btn normal-case font-medium bg-slate-200 bg-textColor text-white">daisyUI
+                <button onclick="htmlBlog()" class="btn normal-case font-medium bg-slate-200 bg-textColor text-white">Blog
                 </button>
             </div>
 
@@ -61,10 +61,7 @@
     <main class="mt-8">
         <!------------- top-button ---------------->
         <div class="tab-container w-full ">
-            <div class="tabs tabs  w-96 mx-auto text-center justify-center p-4" id="tab-container">
-                <!-- <a class="tab">Tab 1</a> 
-                <a class="tab tab-active">Tab 2</a> 
-                <a class="tab">Tab 3</a> -->
+            <div class="tabs tabs   mx-auto text-center justify-center p-4" id="tab-container">
             </div>
 
         </div>
@@ -72,9 +69,15 @@
 
     <!------------- all news card ------------->
     <section class="container mx-auto">
-        <div id="card-container" class="grid grid-cols-4 gap-4">
+        <div  id="card-container" class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+        </div>
+        <div id="no-data">
+
         </div>
     </section>
+    <div>
+        
+    </div>
 
 
 
