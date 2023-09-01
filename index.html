@@ -1,24 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHero Tube</title>
+    <!----- font -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+    </style>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        ;
+    </style>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        textColor: '#FF1F3D',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
+
 <body>
     <!-------------------- navbar -------------------->
-    <header>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus obcaecati ullam pariatur! Molestiae ad minus quibusdam a dolores consequatur animi hic est voluptates, quae, iste unde ratione autem magnam in?</p>
+    <header class="mt-8">
+        <div class="navbar bg-base-100 container mx-auto">
+            <div class="navbar-start">
+                <div class="navbar-center flex gap-1">
+                    <img src="img/fi_3039386.svg" alt="">
+                    <a class="normal-case text-2xl font-bold"><span class="text-textColor">PH</span>Tube</a>
+                </div>
+            </div>
+            <div class="navbar-center">
+                <a class="btn btn-ghost normal-case text-lg font-medium bg-slate-200 px-4">Sort by view</a>
+            </div>
+            <div class="navbar-end">
+                <button class="btn normal-case font-medium bg-slate-200 bg-textColor text-white">daisyUI
+                </button>
+            </div>
+
+        </div>
+
+        <div class="container mx-auto w-5/6 mt-8">
+            <hr>
+        </div>
 
     </header>
     <!-------------- main -------------->
-    <main>
+    <main class="mt-8">
+        <!------------- top-button ---------------->
+        <div class="tab-container w-full ">
+            <div class="tabs tabs  w-96 mx-auto text-center justify-center p-4" id="tab-container">
+                <!-- <a class="tab">Tab 1</a> 
+                <a class="tab tab-active">Tab 2</a> 
+                <a class="tab">Tab 3</a> -->
+            </div>
 
+        </div>
     </main>
+
+    <!------------- all news card ------------->
+    <section class="container mx-auto">
+        <div id="card-container" class="grid grid-cols-4 gap-4">
+        </div>
+    </section>
 
 
 
     <!------------------- JavaScript ------------------->
     <script src="js/index.js"></script>
 </body>
+
 </html>
