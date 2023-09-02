@@ -3,7 +3,7 @@ const categoryApi = async () => {
     const data = await res.json();
 
     const tabContainer = document.getElementById('tab-container');
-    console.log(tabContainer)
+    // console.log(tabContainer)
     data.data.forEach((category) => {
         const div = document.createElement('div');
         div.innerHTML = `
@@ -12,32 +12,33 @@ const categoryApi = async () => {
     `
         tabContainer.appendChild(div)
     })
-    
+
 }
 
 
 
 
 //---------------------- html blog
-function htmlBlog(){
+function htmlBlog() {
     window.open("http://127.0.0.1:5500/blog.html");
 }
 
+// --------------------news category------------
 const handleNews = async (categoryId) => {
     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryId}`);
     const data = await res.json();
-    // console.log(data.data.length)
+
     // ---------------------no data----------------
     const noDataPage = document.getElementById('no-data')
-    noDataPage.innerHTML="";
-    if(data.data.length === 0){
+    noDataPage.innerHTML = "";
+    if (data.data.length === 0) {
         const nav = document.createElement('nav');
-                nav.innerHTML =  `
+        nav.innerHTML = `
                 <img class="mt-8 lg:mx-60 mx-36" src="img/onData.svg" alt="">
                 <h1 class="text-4xl font-bold mt-8 ">Oops!! Sorry, There is no content here</h1>
                 `
-    noDataPage.appendChild(nav);
-            }
+        noDataPage.appendChild(nav);
+    }
     const cardHandle = document.getElementById('card-container')
     cardHandle.innerHTML = " ";
     data.data.forEach((news) => {
@@ -47,11 +48,10 @@ const handleNews = async (categoryId) => {
             <div class="card w-full item-center mt-8 h-4/5 bg-base-100 shadow-xl">
                     <figure class="flex h-3/4">
                         <div class="hero">
-                         <img class="w-full h-[280px]  " src="${news?.thumbnail}" />
-                        <div class="absolute left-[250px]  inset-x-9 bottom-52 rounded-md">
+                         <img class="w-full h-[280px]" src="${news?.thumbnail}" />
+                        <div class="absolute left-[195px]   bottom-48 rounded-md">
                             <div class="max-w-md bg-stone-200">
-                                <p onclick="showTime(sec)" class=" ">${news.others.posted_date?"${array[0]}hours and ${array[1]" : ""}
-                                </p>
+                                <p> ${showTime(news.others.posted_date)|| ''}</p>
                             </div>
                         </div>
                         </div>
@@ -70,11 +70,8 @@ const handleNews = async (categoryId) => {
                                 </div>
                             </div>
                             <div class="card-actions justify-end">
-                            <p onclick="sortBtn(data)">${news.others.views} views</p>
-                            
-                            
-                            </div>
-                            
+                            <p id="views-id" onclick="sortBtn(data)">${news.others.views} views</p>
+                            </div>  
                         </div>
             </div>
         `
@@ -82,34 +79,35 @@ const handleNews = async (categoryId) => {
     })
 }
 
-let x = 0;
-const sortBtn = (data) =>{
-
-}
-sortBtn()
-
-
-
-
-
-
-// function showTime(sec){
-//     let hrs = sec / 36000;
-//     let min = sec % 3600 / 60;
-//     let secs = sec % 3600 % 60;
-//     return `<div>${hrs}hrs ${min}min ${secs}</div>`;
+// const sortViewsBtn = async (categoryFiled) => {
+//     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryFiled}`);
+//     const data = await res.json();
+//     const card = data.data;
+//     console.log(data.data)
+//     for (let i = 0; i< card.length; i++){
+//         card[i].news.others.views =parseInt(card[i].news.others.views);
+//         console.log(card)
 //     }
-//    console.log(showTime, 60000);
+
+// }
+
+// const shortViewsBtn = (data)=>{
+//     let newArray =data;
+//     console.log(newArray)
+//     newArray.sort((a,b)=>{
+//         return parseFloat(b.others.views)-parseFloat(a.others.views);
+//     })
+// }
+
+function showTime(sec){
+    const s = parseFloat(sec)
+    let hrs =Math.floor(s / 3600)|| "";
+    let min = Math.floor(s % 3600 / 60)|| "";
+    let hrs1 = hrs ? `<span>${hrs}hrs</span>`: "";
+    let min1 = min ? `<span>${min}min ago</span>`: "";
+    return `<div>${hrs1} ${min1}</div>`;
+    }
 
 handleNews("1000")
 
-
-
 categoryApi()
-
-// const s = 5000;
-
-// let h =  s /3600;
-// let m = s % 3600 / 60;
-
-// document.getElementById('min').innerHTML = s(h + 'hour' + m + "minute");
