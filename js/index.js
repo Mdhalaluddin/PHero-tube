@@ -49,7 +49,7 @@ const handleNews = async (categoryId) => {
                     <figure class="flex h-3/4">
                         <div class="hero">
                          <img class="w-full h-[280px]" src="${news?.thumbnail}" />
-                        <div class="absolute left-[195px]   bottom-48 rounded-md">
+                        <div class="absolute left-[190px]   bottom-48 rounded-md">
                             <div class="max-w-md bg-stone-200">
                                 <p> ${showTime(news.others.posted_date)|| ''}</p>
                             </div>
@@ -78,26 +78,6 @@ const handleNews = async (categoryId) => {
         cardHandle.appendChild(div);
     })
 }
-
-// const sortViewsBtn = async (categoryFiled) => {
-//     const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/${categoryFiled}`);
-//     const data = await res.json();
-//     const card = data.data;
-//     console.log(data.data)
-//     for (let i = 0; i< card.length; i++){
-//         card[i].news.others.views =parseInt(card[i].news.others.views);
-//         console.log(card)
-//     }
-
-// }
-
-// const shortViewsBtn = (data)=>{
-//     let newArray =data;
-//     console.log(newArray)
-//     newArray.sort((a,b)=>{
-//         return parseFloat(b.others.views)-parseFloat(a.others.views);
-//     })
-// }
 
 function showTime(sec){
     const s = parseFloat(sec)
