@@ -43,10 +43,11 @@
                 </div>
             </div>
             <div class="navbar-center">
-                <a class="btn btn-ghost normal-case text-lg font-medium bg-slate-200 px-4">Sort by view</a>
+                <a onclick="sortBtn()" class="btn btn-ghost normal-case text-lg font-medium bg-slate-200 px-4">Sort by view</a>
             </div>
             <div class="navbar-end">
-                <button onclick="htmlBlog()" class="btn normal-case font-medium bg-slate-200 bg-textColor text-white">Blog
+                <button onclick="htmlBlog()"
+                    class="btn normal-case font-medium bg-slate-200 bg-textColor text-white">Blog
                 </button>
             </div>
 
@@ -69,14 +70,12 @@
 
     <!------------- all news card ------------->
     <section class="container mx-auto">
-        <div  id="card-container" class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
+        <div id="card-container" class="grid lg:grid-cols-4 md:grid-cols-2 gap-4">
         </div>
-        <div id="no-data">
 
-        </div>
     </section>
-    <div>
-        
+    <div class="text-center container mx-auto grid justify-items-center" id="no-data">
+
     </div>
 
 
